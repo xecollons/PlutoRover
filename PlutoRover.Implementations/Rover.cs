@@ -55,10 +55,13 @@ namespace PlutoRover.Implementations
                         MoveForward();
                         break;
                     case 'B':
+                        MoveBackward();
                         break;
                     case 'L':
+                        TurnLeft();
                         break;
                     case 'R':
+                        TurnRight();
                         break;
                 }
             }
@@ -85,6 +88,42 @@ namespace PlutoRover.Implementations
                     Position.X--;
                     break;
             }
+        }
+        /// <summary>
+        /// Moves the Rover forward
+        /// </summary>
+        private void MoveBackward()
+        {
+            switch (Orientation)
+            {
+                case Orientations.N:
+                    Position.Y--;
+                    break;
+                case Orientations.S:
+                    Position.Y++;
+                    break;
+                case Orientations.E:
+                    Position.X--;
+                    break;
+                case Orientations.W:
+                    Position.X++;
+                    break;
+            }
+        }
+        /// <summary>
+        /// Turns the Rover Left
+        /// </summary>
+        private void TurnLeft()
+        {
+            Orientation = (Orientation - 1) < Orientations.N ? Orientations.W : Orientation - 1;
+        }
+
+        /// <summary>
+        /// Turns the Rover right
+        /// </summary>
+        private void TurnRight()
+        {
+            Orientation = (Orientation + 1) > Orientations.W ? Orientations.N : Orientation + 1;
         }
         #endregion
     }

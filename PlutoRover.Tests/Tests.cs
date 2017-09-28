@@ -24,7 +24,7 @@ namespace PlutoRover.Tests
         }
 
         /// <summary>
-        /// Moves three steps forward
+        /// Moves three steps forward. Testing multiple commands
         /// </summary>
         [TestMethod]
         public void MoveForward3Steps()
@@ -63,7 +63,7 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover();
             oRover.ProcessCommands("L");
-            Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed. Current orientation is " + oRover.Orientation);
             Assert.AreEqual(0, oRover.Position.X, "X position test failed");
             Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
         }
@@ -108,7 +108,7 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover();
             oRover.ProcessCommands("R");
-            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed. Current orientation is " + oRover.Orientation);
             Assert.AreEqual(0, oRover.Position.X, "X position test failed");
             Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
         }
