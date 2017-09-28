@@ -24,7 +24,7 @@ namespace PlutoRover.Tests
         }
 
         /// <summary>
-        /// Moves one step forward
+        /// Moves three steps forward
         /// </summary>
         [TestMethod]
         public void MoveForward3Steps()
@@ -38,6 +38,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(3, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Moves one step backward
+        /// </summary>
         [TestMethod]
         public void MoveBackward()
         {
@@ -50,6 +53,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(1, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Turns left
+        /// </summary>
         [TestMethod]
         public void TurnLeft()
         {
@@ -62,6 +68,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Turns left and moves one step forward 
+        /// </summary>
         [TestMethod]
         public void TurnLeftAndMoveForward()
         {
@@ -74,6 +83,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Turns left and moves one step backward
+        /// </summary>
         [TestMethod]
         public void TurnLeftAndMoveBackward()
         {
@@ -86,6 +98,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Turns right
+        /// </summary>
         [TestMethod]
         public void TurnRight()
         {
@@ -98,6 +113,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Turns right and moves one step forward 
+        /// </summary>
         [TestMethod]
         public void TurnRightAndMoveForward()
         {
@@ -110,6 +128,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Turns right and moves one step backward
+        /// </summary>
         [TestMethod]
         public void TurnRightAndMoveBackward()
         {
@@ -122,6 +143,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Moves out of width bounds and appears in the other side of the surface
+        /// </summary>
         [TestMethod]
         public void MoveOutOfWidthBounds()
         {
@@ -134,6 +158,9 @@ namespace PlutoRover.Tests
             Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Moves out of height bounds and appears in the other side of the surface
+        /// </summary>
         [TestMethod]
         public void MoveOutOfHeightBounds()
         {
@@ -146,10 +173,22 @@ namespace PlutoRover.Tests
             Assert.AreEqual(1, oRover.Position.Y, "Y position test failed");
         }
 
+        /// <summary>
+        /// Finds an obstacle and stops
+        /// </summary>
         [TestMethod]
         public void FindObstacle()
         {
-            Assert.IsTrue(false);
+            Surface.Width = 100;
+            Surface.Height = 100;
+            Surface.ObstaclesList = new System.Collections.Generic.List<Coordinates>();
+            Surface.ObstaclesList.Add(new Coordinates() { X = 2, Y = 4 });
+            Rover oRover = new Rover(2, 2, Orientations.N);
+            oRover.ProcessCommands("FFFFFF");
+            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed");
+            Assert.AreEqual(2, oRover.Position.X, "X position test failed");
+            Assert.AreEqual(3, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.HasFoundObstacle, "Obstacle test failed");
         }
     }
 }

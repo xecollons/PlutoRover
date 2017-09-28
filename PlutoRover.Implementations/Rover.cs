@@ -19,6 +19,11 @@ namespace PlutoRover.Implementations
         /// Current position
         /// </summary>
         public Coordinates Position { get; set; }
+
+        /// <summary>
+        /// Returns if an obstacle has been found
+        /// </summary>
+        public bool HasFoundObstacle { get; set; }
         #endregion
 
         #region Constructors
@@ -27,12 +32,14 @@ namespace PlutoRover.Implementations
         /// </summary>
         public Rover()
         {
+            HasFoundObstacle = false;
             Orientation = Orientations.N;
             Position = new Coordinates() { X = 0, Y = 0 };
         }
 
         public Rover(int xPos, int yPos, Orientations orientation)
         {
+            HasFoundObstacle = false;
             Position = new Coordinates() { X = xPos, Y = yPos };
             Orientation = orientation;
         }
