@@ -22,5 +22,65 @@ namespace PlutoRover.Tests
             Assert.AreEqual(0, oRover.Position.X, "X position test failed");
             Assert.AreEqual(1, oRover.Position.Y, "Y position test failed");
         }
+
+        [TestMethod]
+        public void MoveBackward()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void TurnLeft()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void TurnLeftAndMoveForward()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void TurnLeftAndMoveBackward()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void TurnRight()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void TurnRightAndMoveForward()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void TurnRightAndMoveBackward()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void MoveOutOfWidthBounds()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void MoveOutOfHeightBounds()
+        {
+            Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void FindObstacle()
+        {
+            Assert.IsTrue(false);
+        }
     }
 }
