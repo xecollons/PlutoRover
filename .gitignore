@@ -3,3 +3,8 @@
 ################################################################################
 
 /packages
+/.vs/PlutoRover/v15
+/PlutoRover.Implementations/obj/Debug
+/PlutoRover.Implementations/bin/Debug
+/PlutoRover.Tests/obj/Debug
+/PlutoRover.Tests/bin/Debug
