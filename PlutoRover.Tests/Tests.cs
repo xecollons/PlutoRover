@@ -18,9 +18,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover();
             oRover.ProcessCommands("F");
-            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed");
-            Assert.AreEqual(0, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(1, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(0, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(1, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover();
             oRover.ProcessCommands("FFF");
-            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed. Current orientation is " + oRover.Orientation);
             Assert.AreEqual(0, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
             Assert.AreEqual(3, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
@@ -48,9 +48,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover(2, 2, Orientations.N);
             oRover.ProcessCommands("B");
-            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed");
-            Assert.AreEqual(2, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(1, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(2, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(1, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -64,8 +64,8 @@ namespace PlutoRover.Tests
             Rover oRover = new Rover();
             oRover.ProcessCommands("L");
             Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed. Current orientation is " + oRover.Orientation);
-            Assert.AreEqual(0, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
+            Assert.AreEqual(0, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(0, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -78,9 +78,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover(2, 2, Orientations.N);
             oRover.ProcessCommands("LF");
-            Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed");
-            Assert.AreEqual(1, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(1, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -93,9 +93,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover(2, 2, Orientations.N);
             oRover.ProcessCommands("LB");
-            Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed");
-            Assert.AreEqual(3, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.W, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(3, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -109,8 +109,8 @@ namespace PlutoRover.Tests
             Rover oRover = new Rover();
             oRover.ProcessCommands("R");
             Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed. Current orientation is " + oRover.Orientation);
-            Assert.AreEqual(0, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
+            Assert.AreEqual(0, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(0, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -123,9 +123,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover();
             oRover.ProcessCommands("RF");
-            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed");
-            Assert.AreEqual(1, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(0, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(1, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(0, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -138,9 +138,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover(2, 2, Orientations.N);
             oRover.ProcessCommands("RB");
-            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed");
-            Assert.AreEqual(1, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(1, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -153,9 +153,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover(98, 2, Orientations.E);
             oRover.ProcessCommands("FFF");
-            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed");
-            Assert.AreEqual(1, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(1, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(2, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -168,9 +168,9 @@ namespace PlutoRover.Tests
             Surface.Height = 100;
             Rover oRover = new Rover(2, 98, Orientations.N);
             oRover.ProcessCommands("FFF");
-            Assert.IsTrue(oRover.Orientation == Orientations.E, "Orientation test failed");
-            Assert.AreEqual(2, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(1, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(2, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(1, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>
@@ -185,9 +185,9 @@ namespace PlutoRover.Tests
             Surface.ObstaclesList.Add(new Coordinates() { X = 2, Y = 4 });
             Rover oRover = new Rover(2, 2, Orientations.N);
             oRover.ProcessCommands("FFFFFF");
-            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed");
-            Assert.AreEqual(2, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(3, oRover.Position.Y, "Y position test failed");
+            Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed. Current orientation is " + oRover.Orientation);
+            Assert.AreEqual(2, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(3, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
             Assert.IsTrue(oRover.HasFoundObstacle, "Obstacle test failed");
         }
     }

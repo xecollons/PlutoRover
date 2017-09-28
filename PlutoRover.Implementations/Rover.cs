@@ -76,16 +76,16 @@ namespace PlutoRover.Implementations
             switch (Orientation)
             {
                 case Orientations.N:
-                    Position.Y++;
+                    Position.Y = (Position.Y + 1) % Surface.Height;
                     break;
                 case Orientations.S:
-                    Position.Y--;
+                    Position.Y = Position.Y == 0 ? Surface.Height - 1 : Position.Y - 1;
                     break;
                 case Orientations.E:
-                    Position.X++;
+                    Position.X = (Position.X + 1) % Surface.Width;
                     break;
                 case Orientations.W:
-                    Position.X--;
+                    Position.X = Position.X == 0 ? Surface.Width - 1 : Position.X - 1;
                     break;
             }
         }
@@ -97,16 +97,16 @@ namespace PlutoRover.Implementations
             switch (Orientation)
             {
                 case Orientations.N:
-                    Position.Y--;
+                    Position.Y = Position.Y == 0 ? Surface.Height - 1 : Position.Y - 1;
                     break;
                 case Orientations.S:
-                    Position.Y++;
+                    Position.Y = (Position.Y + 1) % Surface.Height;
                     break;
                 case Orientations.E:
-                    Position.X--;
+                    Position.X = Position.X == 0 ? Surface.Width - 1 : Position.X - 1;
                     break;
                 case Orientations.W:
-                    Position.X++;
+                    Position.X = (Position.X + 1) % Surface.Width;
                     break;
             }
         }
