@@ -34,8 +34,8 @@ namespace PlutoRover.Tests
             Rover oRover = new Rover();
             oRover.ProcessCommands("FFF");
             Assert.IsTrue(oRover.Orientation == Orientations.N, "Orientation test failed");
-            Assert.AreEqual(0, oRover.Position.X, "X position test failed");
-            Assert.AreEqual(3, oRover.Position.Y, "Y position test failed");
+            Assert.AreEqual(0, oRover.Position.X, "X position test failed. Position X = " + oRover.Position.X);
+            Assert.AreEqual(3, oRover.Position.Y, "Y position test failed. Position Y = " + oRover.Position.Y);
         }
 
         /// <summary>

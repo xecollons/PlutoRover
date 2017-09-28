@@ -47,19 +47,18 @@ namespace PlutoRover.Implementations
         #region Public methods
         public void ProcessCommands(string commands)
         {
-            var commandsArray = commands.Split();
-            foreach (string command in commandsArray)
+            foreach (char command in commands)
             {
                 switch (command)
                 {
-                    case "F":
+                    case 'F':
                         MoveForward();
                         break;
-                    case "B":
+                    case 'B':
                         break;
-                    case "L":
+                    case 'L':
                         break;
-                    case "R":
+                    case 'R':
                         break;
                 }
             }
