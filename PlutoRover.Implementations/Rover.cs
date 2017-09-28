@@ -30,6 +30,12 @@ namespace PlutoRover.Implementations
             Orientation = Orientations.N;
             Position = new Coordinates() { X = 0, Y = 0 };
         }
+
+        public Rover(int xPos, int yPos, Orientations orientation)
+        {
+            Position = new Coordinates() { X = xPos, Y = yPos };
+            Orientation = orientation;
+        }
         #endregion
         #region Public methods
         public void ProcessCommands(string commands)
