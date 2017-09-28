@@ -64,6 +64,10 @@ namespace PlutoRover.Implementations
                         TurnRight();
                         break;
                 }
+                if (HasFoundObstacle)
+                {
+                    return;
+                }
             }
         }
         #endregion
@@ -73,42 +77,75 @@ namespace PlutoRover.Implementations
         /// </summary>
         private void MoveForward()
         {
+            Coordinates nextPosition = GetForwardPosition(Position);
+            if (Surface.ObstaclesList != null && Surface.ObstaclesList.Any(x => x.X == nextPosition.X && x.Y == nextPosition.Y))
+            {
+                HasFoundObstacle = true;
+                return;
+            }
+            Position = nextPosition;
+        }
+        private Coordinates GetForwardPosition(Coordinates currentPosition)
+        {
+            Coordinates coords = new Coordinates();
             switch (Orientation)
             {
                 case Orientations.N:
-                    Position.Y = (Position.Y + 1) % Surface.Height;
+                    coords.Y = (currentPosition.Y + 1) % Surface.Height;
+                    coords.X = currentPosition.X;
                     break;
                 case Orientations.S:
-                    Position.Y = Position.Y == 0 ? Surface.Height - 1 : Position.Y - 1;
+                    coords.Y = currentPosition.Y == 0 ? Surface.Height - 1 : currentPosition.Y - 1;
+                    coords.X = currentPosition.X;
                     break;
                 case Orientations.E:
-                    Position.X = (Position.X + 1) % Surface.Width;
+                    coords.X = (currentPosition.X + 1) % Surface.Width;
+                    coords.Y = currentPosition.Y;
                     break;
                 case Orientations.W:
-                    Position.X = Position.X == 0 ? Surface.Width - 1 : Position.X - 1;
+                    coords.X = currentPosition.X == 0 ? Surface.Width - 1 : currentPosition.X - 1;
+                    coords.Y = currentPosition.Y;
                     break;
             }
+            return coords;
         }
         /// <summary>
         /// Moves the Rover forward
         /// </summary>
         private void MoveBackward()
         {
+            Coordinates nextPosition = GetBackwardPosition(Position);
+            if (Surface.ObstaclesList != null && Surface.ObstaclesList.Any(x => x.X == nextPosition.X && x.Y == nextPosition.Y))
+            {
+                HasFoundObstacle = true;
+                return;
+            }
+            Position = nextPosition;
+        }
+
+        private Coordinates GetBackwardPosition(Coordinates currentPosition)
+        {
+            Coordinates coords = new Coordinates();
             switch (Orientation)
             {
                 case Orientations.N:
-                    Position.Y = Position.Y == 0 ? Surface.Height - 1 : Position.Y - 1;
+                    coords.Y = currentPosition.Y == 0 ? Surface.Height - 1 : currentPosition.Y - 1;
+                    coords.X = currentPosition.X;
                     break;
                 case Orientations.S:
-                    Position.Y = (Position.Y + 1) % Surface.Height;
+                    coords.Y = (currentPosition.Y + 1) % Surface.Height;
+                    coords.X = currentPosition.X;
                     break;
                 case Orientations.E:
-                    Position.X = Position.X == 0 ? Surface.Width - 1 : Position.X - 1;
+                    coords.X = currentPosition.X == 0 ? Surface.Width - 1 : currentPosition.X - 1;
+                    coords.Y = currentPosition.Y;
                     break;
                 case Orientations.W:
-                    Position.X = (Position.X + 1) % Surface.Width;
+                    coords.X = (currentPosition.X + 1) % Surface.Width;
+                    coords.Y = currentPosition.Y;
                     break;
             }
+            return coords;
         }
         /// <summary>
         /// Turns the Rover Left
